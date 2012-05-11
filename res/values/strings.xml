@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">点击按钮获取JSON数据</string>
-    <string name="app_name">Android-JSONDemo</string>
+    <string name="app_name">xingry-android</string>
     <string name="btn_get_json">获取服务端数据</string>
     <string name="btn_update">检查更新</string>
 

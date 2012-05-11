@@ -3,10 +3,10 @@ package cn.xingry.android.json;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import cn.xingry.android.R;
 import cn.xingry.android.updateManager.UpdateManager;
 import cn.xingry.android.util.JSONUtil;
 
-import com.android.json.R;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -14,16 +14,20 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-
+/**
+ * android应用程序与服务端JSON交互示例
+ * @author xingruyi
+ *
+ */
 public class JSONActivity extends Activity {
+	//本地服务端地址TOMCAT
     private static final String API_URL="http://10.0.2.2:8080/android/json.jsp";
 	
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        
+        setContentView(R.layout.json);
         //绑定事件
         attachEvent();
     }
@@ -31,7 +35,6 @@ public class JSONActivity extends Activity {
     private void attachEvent() {
     	final Button btnGetJSON = (Button)findViewById(R.id.btnGetJSON);
     	final TextView txt = (TextView)findViewById(R.id.txtContent);
-    	final Button btnUpdate = (Button)findViewById(R.id.btnUpdate);
     	
     	
     	//获取JSON
@@ -60,22 +63,12 @@ public class JSONActivity extends Activity {
 					
 				} catch (Exception e) {
 					e.printStackTrace();
+					txt.setText("发生错误：请重试！\n描述：" + e.getMessage());
 				}
 				
 			}
 		});
     	
-    	
-    	//检查更新
-    	btnUpdate.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View view) {
-				UpdateManager manager = new UpdateManager(view.getContext());
-				manager.checkUpdate();
-				
-			}
-		});
     	
     	
     }

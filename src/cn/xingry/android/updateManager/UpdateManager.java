@@ -22,7 +22,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.android.json.R;
+import cn.xingry.android.R;
 
 /**
  * 更新管理器
@@ -61,8 +61,9 @@ public class UpdateManager {
 
 	//handler处理器，用于接收子线程消息，更新视图组件。 
 	private Handler handler = new Handler() {
-
+		//处理子线程发送消息
 		public void handleMessage(Message msg) {
+			//判断消息类型
 			switch (msg.what) {
 			case DOWNLOAD_UPDATE:
 				progressBar.setProgress(progress);
