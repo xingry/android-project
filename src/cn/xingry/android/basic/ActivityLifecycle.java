@@ -27,6 +27,7 @@ public class ActivityLifecycle extends Activity {
 		Log.d(TAG, "--onCreate--");
 
 		this.layout = new LinearLayout(this);
+		this.layout.setOrientation(LinearLayout.VERTICAL);
 		setContentView(this.layout);
 
 		init();// 初始化文本框 和 按钮
@@ -36,7 +37,6 @@ public class ActivityLifecycle extends Activity {
 	private void init() {
 		txt = new EditText(this);
 		txt.setText("此文本中按home键再次返回后仍然保留");
-		layout.addView(txt);
 
 		Button btn = new Button(this);
 		btn.setText("返回");
@@ -47,6 +47,7 @@ public class ActivityLifecycle extends Activity {
 			}
 		});
 		layout.addView(btn);
+		layout.addView(txt);
 
 	}
 

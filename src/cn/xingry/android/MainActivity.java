@@ -1,8 +1,12 @@
 package cn.xingry.android;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Process;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -45,6 +49,35 @@ public class MainActivity extends Activity {
 		initSkin();
 		
 	}
+	
+	/**
+	 * 退出确认
+	 */
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		//判断当前按键是否为返回键
+		if(KeyEvent.KEYCODE_BACK == keyCode && event.getRepeatCount() ==0) {
+			//创建对话框
+			new AlertDialog.Builder(this).setTitle("退出确认？").setMessage("确定要退出吗？")
+			.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();//关闭对话框 
+				}
+			})
+			.setPositiveButton("退出", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.dismiss();
+					Process.killProcess(Process.myPid());//杀死当前进程
+				}
+			}).show();
+			return true;
+		}else {
+			return super.onKeyDown(keyCode, event);
+		}
+	}
+	
 	/**
 	 * activity生命周期示例
 	 */

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 /**
  * android应用程序与服务端JSON交互示例
  * @author xingruyi
@@ -58,12 +59,16 @@ public class JSONActivity extends Activity {
 						buf.append(name + "-" + age);
 						buf.append("\n");
 					}			
-					txt.setText("成功获取 " + array.length() + " 个数据，\n" + buf.toString());
+					String result = "成功获取 " + array.length() + " 个数据，\n" + buf.toString();
+					txt.setText(result);
+					
+					Toast.makeText(JSONActivity.this, result, Toast.LENGTH_LONG).show();
 					
 					
 				} catch (Exception e) {
 					e.printStackTrace();
 					txt.setText("发生错误：请重试！\n描述：" + e.getMessage());
+					Toast.makeText(JSONActivity.this, "发生错误：请重试！\n描述：" + e.getMessage(), Toast.LENGTH_LONG).show();
 				}
 				
 			}

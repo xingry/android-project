@@ -2,8 +2,6 @@
 *.class
 *.bak
 *.tmp
-.classpath
-.project
 target/
 logs/
 org.eclipse.jdt.core.prefs
