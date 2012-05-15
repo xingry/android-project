@@ -13,8 +13,9 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <activity
-            android:name="cn.xingry.android.MainActivity"
-            android:label="@string/app_name" >
+            android:name="cn.xingry.android.CoverActivity"
+            android:label="@string/app_name" 
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -32,6 +33,9 @@
             android:name=".menu.OptionsMenuActivity"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+        <activity
+            android:name=".MainActivity"
+        ></activity>
     </application>
 
 </manifest>
