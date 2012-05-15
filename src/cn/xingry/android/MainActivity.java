@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import cn.xingry.android.basic.ActivityLifecycle;
 import cn.xingry.android.json.JSONActivity;
+import cn.xingry.android.menu.OptionsMenuActivity;
 import cn.xingry.android.skin.SkinSettingManager;
 import cn.xingry.android.updateManager.UpdateManager;
 /**
@@ -47,6 +48,9 @@ public class MainActivity extends Activity {
 		
 		//皮肤切换
 		initSkin();
+		
+		//选项菜单
+		initOptionsMenu();
 		
 	}
 	
@@ -148,5 +152,20 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
-	
+	/**
+	 * initOptionsMenu演示选项菜单
+	 */
+	private void initOptionsMenu() {
+		Button btn = new Button(this);
+		btn.setText("选项菜单演示");
+		this.layout.addView(btn);
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(v.getContext(), OptionsMenuActivity.class);
+				startActivity(intent);
+			}
+		});
+	}
 }

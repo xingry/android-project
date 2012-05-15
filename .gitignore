@@ -2,6 +2,7 @@
 *.class
 *.bak
 *.tmp
+bin/
 target/
 logs/
 org.eclipse.jdt.core.prefs
