@@ -9,7 +9,7 @@ import android.view.WindowManager;
 /**
  * 启动界面
  * @author xingruyi
- *
+ *pw
  */
 public class CoverActivity extends Activity {
 
