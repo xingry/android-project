@@ -15,6 +15,7 @@ import cn.xingry.android.basic.ActivityLifecycle;
 import cn.xingry.android.json.JSONActivity;
 import cn.xingry.android.menu.OptionsMenuActivity;
 import cn.xingry.android.skin.SkinSettingManager;
+import cn.xingry.android.sms.SMSActivity;
 import cn.xingry.android.updateManager.UpdateManager;
 /**
  * 示例的主界面，此界面提供多个按钮，点击不同按钮跳转至相应界面。
@@ -51,6 +52,9 @@ public class MainActivity extends Activity {
 		
 		//选项菜单
 		initOptionsMenu();
+		
+		//短信息发送及监控
+		initSMS();
 		
 	}
 	
@@ -164,6 +168,23 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.setClass(v.getContext(), OptionsMenuActivity.class);
+				startActivity(intent);
+			}
+		});
+	}
+	
+	/**
+	 * 初始化短信发送界面
+	 */
+	private void initSMS() {
+		Button btn = new Button(this);
+		btn.setText("短信发送及监控");
+		this.layout.addView(btn);
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(v.getContext(), SMSActivity.class);
 				startActivity(intent);
 			}
 		});

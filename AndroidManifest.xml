@@ -4,8 +4,9 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
@@ -14,10 +15,11 @@
         android:label="@string/app_name" >
         <activity
             android:name="cn.xingry.android.CoverActivity"
-            android:label="@string/app_name" 
+            android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,9 +35,16 @@
             android:name=".menu.OptionsMenuActivity"
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
-        <activity
-            android:name=".MainActivity"
-        ></activity>
+        <activity android:name=".MainActivity" >
+        </activity>
+        <activity android:name=".sms.SMSActivity" >
+        </activity>
+
+        <receiver android:name=".sms.SMSReceiverMonitor" >
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
