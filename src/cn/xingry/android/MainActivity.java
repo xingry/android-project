@@ -11,11 +11,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TabHost;
 import cn.xingry.android.basic.ActivityLifecycle;
 import cn.xingry.android.json.JSONActivity;
 import cn.xingry.android.menu.OptionsMenuActivity;
 import cn.xingry.android.skin.SkinSettingManager;
 import cn.xingry.android.sms.SMSActivity;
+import cn.xingry.android.tab.TabHostActivity;
 import cn.xingry.android.updateManager.UpdateManager;
 /**
  * 示例的主界面，此界面提供多个按钮，点击不同按钮跳转至相应界面。
@@ -55,6 +57,9 @@ public class MainActivity extends Activity {
 		
 		//短信息发送及监控
 		initSMS();
+		
+		//tabhost
+		initTabHost();
 		
 	}
 	
@@ -185,6 +190,23 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.setClass(v.getContext(), SMSActivity.class);
+				startActivity(intent);
+			}
+		});
+	}
+	
+	/**
+	 * tabHost示例
+	 */
+	private void initTabHost() {
+		Button btn = new Button(this);
+		btn.setText("TabHost示例");
+		this.layout.addView(btn);
+		btn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent();
+				intent.setClass(v.getContext(), TabHostActivity.class);
 				startActivity(intent);
 			}
 		});

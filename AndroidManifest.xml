@@ -41,10 +41,31 @@
         </activity>
 
         <receiver android:name=".sms.SMSReceiverMonitor" >
-            <intent-filter>
+            <intent-filter android:priority = "1000">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+        
+        <activity android:name=".tab.TabHostActivity"></activity>
+        <activity android:name=".tab.CatelogActivity"></activity>
+        <activity android:name=".tab.HomeActivity"></activity>
+        <activity android:name=".tab.SongsActivity"></activity>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     </application>
 
 </manifest>
